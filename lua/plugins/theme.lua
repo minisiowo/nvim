@@ -3,7 +3,7 @@ return {
 		"catppuccin/nvim",
 		name = "catppuccin",
 		priority = 1000,
-		lazy = true,
+		lazy = false,
 		opts = {
 			flavour = "mocha",
 			transparent_background = true,
@@ -12,8 +12,8 @@ return {
 			},
 		},
         config = function(_, opts)
-            require("cattpuccin").setup(opts)
-            vim.cmd("colorscheme cattpuccin")
+            require("catppuccin").setup(opts)
+            vim.cmd("colorscheme catppuccin")
         end,
 	},
     -- {

@@ -37,6 +37,8 @@ vim.diagnostic.config({
     virtual_lines = {current_line = true},
 })
 
+vim.opt.fillchars:append({ eob = " " })
+
 -- Update and source current file
 vim.keymap.set("n", "<leader>o", ":update<CR> :source<CR>", {desc = "Update and Source Current File"})
 

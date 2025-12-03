@@ -27,6 +27,10 @@ vim.opt.inccommand = "split"
 
 vim.opt.ignorecase = true
 
+vim.opt.wrapmargin = 2
+vim.opt.formatoptions:append("t")
+vim.opt.linebreak = true
+
 -- umożliwia terminalowi wykorzystywanie większej palety kolorów
 vim.opt.termguicolors = true
 

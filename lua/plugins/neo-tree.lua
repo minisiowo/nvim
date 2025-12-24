@@ -30,8 +30,11 @@ return {
 
         opts = {
             window = {
-                width = function()  -- 25 % szerokości ekranu
-                    return math.floor(vim.o.columns * 0.25)
+                width = function()
+                    local cols = vim.o.columns
+                    local w = math.floor(cols * 0.25) -- bazowo 25%
+                    local min_w, max_w = 28, 50       -- dopasuj pod siebie
+                    return math.max(min_w, math.min(max_w, w))
                 end,
             },
             filesystem = {

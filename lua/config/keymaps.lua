@@ -1,0 +1,51 @@
+-- diagnostics shortcuts
+vim.keymap.set("n", "<leader>dd", vim.diagnostic.open_float, { desc = "Show diagnostic float" })
+vim.keymap.set("n", "<leader>dl", vim.diagnostic.setloclist, { desc = "Diagnostics to location list" })
+vim.keymap.set("n", "<leader>dq", vim.diagnostic.setqflist, { desc = "Diagnostics to quickfix list" })
+
+vim.opt.fillchars:append({ eob = " " })
+
+-- Update and source current file
+vim.keymap.set("n", "<leader>o", ":update<CR> :source<CR>", { desc = "Save and source file" })
+
+-- Buffer navigations
+vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Go to left window" })
+vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Go to lower window" })
+vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Go to upper window" })
+vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Go to right window" })
+
+vim.keymap.set("n", "<C-Up>", ":resize +2<CR>", { desc = "Increase window height" })
+vim.keymap.set("n", "<C-Down>", ":resize -2<CR>", { desc = "Decrease window height" })
+vim.keymap.set("n", "<C-Left>", ":vertical resize -2<CR>", { desc = "Decrease window width" })
+vim.keymap.set("n", "<C-Right>", ":vertical resize +2<CR>", { desc = "Increase window width" })
+
+vim.keymap.set("n", "<leader>sh", "<cmd>split<CR>", { desc = "Split horizontally" })
+vim.keymap.set("n", "<leader>sv", "<cmd>vsplit<CR>", { desc = "Split vertically" })
+vim.keymap.set("n", "<leader>s=", "<C-w>=", { desc = "Equalize splits" })
+
+vim.keymap.set("n", "H", "<cmd>bprevious<CR>", { desc = "Previous buffer" })
+vim.keymap.set("n", "L", "<cmd>bnext<CR>", { desc = "Next buffer" })
+
+-- Line content select
+vim.keymap.set("n", "<leader>vl", "_vg_", { desc = "Select line without indent" })
+
+-- Noh
+vim.keymap.set("n", "<Esc>", function()
+    if vim.v.hlsearch == 1 then
+        vim.cmd("nohlsearch")
+    end
+end, { desc = "Clear search highlight" })
+
+-- MINI.PICK
+-- <Leader>ff - Wyszukiwanie plików
+vim.keymap.set('n', '<leader>ff', '<cmd>Pick files<CR>', { desc = 'Find Files' })
+
+-- <Leader>fg - Wyszukiwanie tekstu (Live Grep)
+-- Używamy 'grep_live', które na bieżąco szuka wpisywanego tekstu w plikach
+vim.keymap.set('n', '<leader>fg', '<cmd>Pick grep_live<CR>', { desc = 'Find/Grep Text' })
+
+-- <Leader>fb - Przeszukiwanie otwartych buforów
+vim.keymap.set('n', '<leader>fb', '<cmd>Pick buffers<CR>', { desc = 'Find Buffers' })
+
+-- <Leader>fh - Przeszukiwanie dokumentacji (Help tags)
+vim.keymap.set('n', '<leader>fh', '<cmd>Pick help<CR>', { desc = 'Find Help Tags' })

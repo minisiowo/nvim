@@ -1,0 +1,52 @@
+# Neovim runtime logs
+nvim.log
+log
+*.log
+
+# Editor temporary files
+*.swp
+*.swo
+*.tmp
+*.bak
+*.orig
+*~
+
+# Session and local state files
+Session.vim
+Sessionx.vim
+.netrwhist
+shada
+*.shada
+*.shada.tmp.*
+
+# Local tool/editor metadata
+.codex
+.codex/
+.DS_Store
+.direnv/
+.env
+.env.*
+
+# Neovim / plugin local data that should not be versioned if created here
+.cache/
+.mason/
+.rocks/
+.luarocks/
+.nvim.lua
+
+# Local development overrides
+lua/local.lua
+lua/local/
+after/plugin/local.lua
+after/plugin/local/
+
+# LSP / formatter / ctags scratch files that can appear in the config dir
+tags
+tags-*
+
+# OS-generated files
+Thumbs.db
+
+# Test / scratch areas
+tmp/
+tests/tmp/

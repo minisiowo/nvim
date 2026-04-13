@@ -15,6 +15,11 @@ vim.pack.add({
     "https://github.com/christoomey/vim-tmux-navigator",
     { src = "https://github.com/Saghen/blink.cmp", version = "v1" },
     "https://github.com/rafamadriz/friendly-snippets",
+    "https://github.com/MeanderingProgrammer/render-markdown.nvim",
+    { src = 'https://github.com/nvim-neo-tree/neo-tree.nvim', version = vim.version.range('3') },
+    -- dependencies
+    "https://github.com/nvim-lua/plenary.nvim",
+    "https://github.com/MunifTanjim/nui.nvim",
 })
 
 -- 3. WYGLĄD I MOTYW (UI powinno załadować się jak najszybciej)
@@ -63,6 +68,7 @@ require("mini.pairs").setup()
 require("mini.git").setup()
 require("mini.pick").setup()
 require("mini.surround").setup()
+require("mini.icons").setup()
 
 require("blink.cmp").setup({
     keymap = { preset = "default" },
@@ -84,11 +90,63 @@ require("blink.cmp").setup({
     },
 })
 
+require("render-markdown").setup({
+    heading = {
+        icons = {"# ", "## ", "### ", "#### ","##### ","###### "},
+        width = "block",
+    },
+})
+
+require("neo-tree").setup({
+    close_if_last_window = true,
+
+    default_component_configs = {
+        icon = {
+            folder_closed = "+",
+            folder_open = "-",
+            folder_empty = "∅",
+            folder_empty_open = "∅",  -- brakujące pole
+            provider = function() end,
+            default = "",
+            use_filtered_colors = true,  -- brakujące pole
+        },
+        git_status = {
+            symbols = {
+                added     = "[A]",
+                modified  = "[M]",
+                deleted   = "[D]",
+                renamed   = "[R]",
+                untracked = "[?]",
+                ignored   = "[ ]",
+                unstaged  = "[u]",
+                staged    = "[s]",
+                conflict  = "[!]",
+            },
+        },
+    },
+
+    window = {
+        width = 35,
+        mappings = {
+            ["l"] = "open",
+            ["h"] = "close_node",
+        },
+    },
+
+    filesystem = {
+        filtered_items = {
+            hide_dotfiles = false,
+        },
+        follow_current_file = { enabled = true },
+        use_libuv_file_watcher = true,
+    },
+})
+
 -- 5 KONFIGURACJA TREESITTER (kolorowanie składni)
 require('nvim-treesitter').install({
     "c", "lua", "vim", "vimdoc", "query",
     "html", "css", "javascript", "typescript", "python",
-    "rust"
+    "rust", "markdown", "markdown_inline",
 })
 
 vim.api.nvim_create_autocmd('FileType', {
@@ -104,11 +162,8 @@ require("mason").setup()
 require("mason-lspconfig").setup()
 require("mason-tool-installer").setup({
     ensure_installed = {
-        "lua_ls",
-        "html",
-        "cssls",
-        "ts_ls",
-        "pyright",
+        "lua_ls", "html", "cssls",
+        "ts_ls", "pyright", "marksman",
         {
             "rust_analyzer",
             condition = function()

@@ -49,3 +49,8 @@ vim.keymap.set('n', '<leader>fb', '<cmd>Pick buffers<CR>', { desc = 'Find Buffer
 
 -- <Leader>fh - Przeszukiwanie dokumentacji (Help tags)
 vim.keymap.set('n', '<leader>fh', '<cmd>Pick help<CR>', { desc = 'Find Help Tags' })
+
+-- NEO-TREE
+vim.keymap.set("n", "<leader>e", function()
+  require("neo-tree.command").execute({ toggle = true, dir = vim.loop.cwd() })
+end, { desc = "Toggle Neo-tree", noremap = true, silent = true })

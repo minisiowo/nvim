@@ -3,19 +3,19 @@ vim.g.maplocalleader = ","
 
 -- Netrw settings
 vim.g.netrw_liststyle = 3
-vim.g.netrw_banner = 0
-vim.g.netrw_winsize = 25
-vim.g.netrw_keepdir = 1          -- nie zmieniaj cwd przy nawigacji
-vim.g.netrw_browse_split = 0     -- otwieraj w aktywnym oknie
+-- vim.g.netrw_banner = 0
+-- vim.g.netrw_winsize = 25
+-- vim.g.netrw_keepdir = 1          -- nie zmieniaj cwd przy nawigacji
+-- vim.g.netrw_browse_split = 0     -- otwieraj w aktywnym oknie
 
--- toggle Lex
-vim.keymap.set("n", "<leader>e", function()
-  if vim.bo.filetype == "netrw" then
-    vim.cmd("Rex")
-  else
-    vim.cmd("Lex")
-  end
-end, { desc = "Toggle netrw" })
+-- -- toggle Lex
+-- vim.keymap.set("n", "<leader>e", function()
+--   if vim.bo.filetype == "netrw" then
+--     vim.cmd("Rex")
+--   else
+--     vim.cmd("Lex")
+--   end
+-- end, { desc = "Toggle netrw" })
 
 vim.opt.number = true
 vim.opt.relativenumber = true

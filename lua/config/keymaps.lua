@@ -8,6 +8,11 @@ vim.opt.fillchars:append({ eob = " " })
 -- Update and source current file
 vim.keymap.set("n", "<leader>o", ":update<CR> :source<CR>", { desc = "Save and source file" })
 
+-- restart neovim with session restore
+vim.keymap.set('n', '<leader>R', function()
+  vim.cmd('mksession! /tmp/nvim_restart_session.vim | restart source /tmp/nvim_restart_session.vim')
+end, { desc = 'Restart Neovim with session restore' })
+
 -- Buffer navigations
 vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Go to left window" })
 vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Go to lower window" })

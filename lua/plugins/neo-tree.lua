@@ -4,6 +4,9 @@ M.setup = function ()
     require("neo-tree").setup({
         close_if_last_window = true,
         default_component_configs = {
+            indent = {
+                padding = 0,
+            },
             icon = {
                 folder_closed = "+",
                 folder_open = "-",

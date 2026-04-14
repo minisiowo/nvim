@@ -32,7 +32,7 @@ M.setup = function ()
         },
         note_id_func = require("obsidian.builtin").title_id,
         note = {
-            template = "new-note-nvim.md", -- A template you can define your self
+            template = "new_note_nvim.md", -- A template you can define your self
         },
         frontmatter = { enabled = false },
         attachments = {

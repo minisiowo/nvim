@@ -14,6 +14,8 @@ vim.pack.add({
     "https://github.com/nvim-lua/plenary.nvim",
     "https://github.com/MunifTanjim/nui.nvim",
     -- { src = "https://github.com/obsidian-nvim/obsidian.nvim", version = vim.version.range "*" },
+    "https://github.com/kdheepak/lazygit.nvim",
+    "https://github.com/mikavilpas/yazi.nvim",
 })
 
 require("plugins.colorscheme").setup()
@@ -24,3 +26,5 @@ require("plugins.render-markdown").setup()
 require("plugins.neo-tree").setup()
 require("plugins.treesitter").setup()
 require("plugins.lsp").setup()
+require("plugins.lazygit").setup()
+require("plugins.yazi").setup()

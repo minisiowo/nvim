@@ -13,14 +13,14 @@ vim.pack.add({
     { src = "https://github.com/nvim-neo-tree/neo-tree.nvim", version = vim.version.range("3") },
     "https://github.com/nvim-lua/plenary.nvim",
     "https://github.com/MunifTanjim/nui.nvim",
-    { src = "https://github.com/obsidian-nvim/obsidian.nvim", version = vim.version.range "*" },
+    -- { src = "https://github.com/obsidian-nvim/obsidian.nvim", version = vim.version.range "*" },
 })
 
 require("plugins.colorscheme").setup()
 require("plugins.mini").setup()
 require("plugins.blink").setup()
 require("plugins.render-markdown").setup()
-require("plugins.obsidian-nvim").setup()
+-- require("plugins.obsidian-nvim").setup()
 require("plugins.neo-tree").setup()
 require("plugins.treesitter").setup()
 require("plugins.lsp").setup()

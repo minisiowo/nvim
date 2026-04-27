@@ -17,6 +17,7 @@ vim.pack.add({
     "https://github.com/kdheepak/lazygit.nvim",
     "https://github.com/mikavilpas/yazi.nvim",
     "https://codeberg.org/andyg/leap.nvim.git",
+    "https://github.com/chomosuke/typst-preview.nvim",
 })
 
 require("plugins.colorscheme").setup()
@@ -30,3 +31,4 @@ require("plugins.lsp").setup()
 require("plugins.lazygit").setup()
 require("plugins.yazi").setup()
 require("plugins.leap").setup()
+require("plugins.typst-preview").setup()

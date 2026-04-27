@@ -15,6 +15,7 @@ M.setup = function ()
         "rust",
         "markdown",
         "markdown_inline",
+        "typst",
     })
 
     vim.api.nvim_create_autocmd("FileType", {

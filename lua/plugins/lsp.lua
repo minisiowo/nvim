@@ -11,6 +11,7 @@ M.setup = function ()
             "ts_ls",
             "pyright",
             "marksman",
+            "tinymist",
             {
                 "rust_analyzer",
                 condition = function()
@@ -20,7 +21,7 @@ M.setup = function ()
         },
     })
 
-    vim.lsp.enable({ "lua_ls", "html", "cssls", "ts_ls", "pyright", "rust_analyzer" })
+    vim.lsp.enable({ "lua_ls", "html", "cssls", "ts_ls", "pyright", "rust_analyzer", "typst" })
 end
 
 return M

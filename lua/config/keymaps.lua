@@ -41,20 +41,6 @@ vim.keymap.set("n", "<Esc>", function()
     end
 end, { desc = "Clear search highlight" })
 
--- MINI.PICK
--- <Leader>ff - Wyszukiwanie plików
-vim.keymap.set('n', '<leader>ff', '<cmd>Pick files<CR>', { desc = 'Find Files' })
-
--- <Leader>fg - Wyszukiwanie tekstu (Live Grep)
--- Używamy 'grep_live', które na bieżąco szuka wpisywanego tekstu w plikach
-vim.keymap.set('n', '<leader>fg', '<cmd>Pick grep_live<CR>', { desc = 'Find/Grep Text' })
-
--- <Leader>fb - Przeszukiwanie otwartych buforów
-vim.keymap.set('n', '<leader>fb', '<cmd>Pick buffers<CR>', { desc = 'Find Buffers' })
-
--- <Leader>fh - Przeszukiwanie dokumentacji (Help tags)
-vim.keymap.set('n', '<leader>fh', '<cmd>Pick help<CR>', { desc = 'Find Help Tags' })
-
 -- NEO-TREE
 vim.keymap.set("n", "<leader>e", function()
   require("neo-tree.command").execute({ toggle = true, dir = vim.loop.cwd() })

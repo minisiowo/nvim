@@ -12,6 +12,26 @@ M.setup = function ()
     require("mini.pairs").setup()
     require("mini.git").setup()
     require("mini.pick").setup()
+
+    -- MINI.PICK
+    -- <Leader>ff - Wyszukiwanie plików, również symlinków (np. ~/.config/niri)
+    vim.keymap.set("n", "<leader>ff", function()
+        require("mini.pick").builtin.cli({
+            command = { "rg", "-L", "--files", "--color=never" },
+        }, {
+            source = { name = "Files" },
+        })
+    end, { desc = "Find Files" })
+
+    -- <Leader>fg - Wyszukiwanie tekstu (Live Grep)
+    vim.keymap.set("n", "<leader>fg", "<cmd>Pick grep_live<CR>", { desc = "Find/Grep Text" })
+
+    -- <Leader>fb - Przeszukiwanie otwartych buforów
+    vim.keymap.set("n", "<leader>fb", "<cmd>Pick buffers<CR>", { desc = "Find Buffers" })
+
+    -- <Leader>fh - Przeszukiwanie dokumentacji (Help tags)
+    vim.keymap.set("n", "<leader>fh", "<cmd>Pick help<CR>", { desc = "Find Help Tags" })
+
     require("mini.surround").setup()
     require("mini.icons").setup()
     miniclue.setup({

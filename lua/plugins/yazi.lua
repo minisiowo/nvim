@@ -31,7 +31,6 @@ M.setup = function()
     -- Keymaps to open yazi
     vim.keymap.set({ "n", "v" }, "<leader>-", "<cmd>Yazi<cr>", { desc = "Open yazi at current file" })
     vim.keymap.set("n", "<leader>cw", "<cmd>Yazi cwd<cr>", { desc = "Open yazi in working directory" })
-    vim.keymap.set("n", "<c-up>", "<cmd>Yazi toggle<cr>", { desc = "Resume last yazi session" })
 end
 
 return M

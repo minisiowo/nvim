@@ -110,6 +110,7 @@ M.setup = function ()
         clues = {
             { mode = 'n', keys = '<Leader>d', desc = '+diagnostics' },
             { mode = 'n', keys = '<Leader>f', desc = '+find' },
+            { mode = 'n', keys = '<Leader>r', desc = '+rename' },
             { mode = 'n', keys = '<Leader>s', desc = '+splits' },
             { mode = 'n', keys = '<Leader>v', desc = '+visual' },
             { mode = 'n', keys = '<Leader>e', desc = 'Explorer' },

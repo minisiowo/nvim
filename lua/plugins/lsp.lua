@@ -10,6 +10,7 @@ M.setup = function ()
             "cssls",
             "ts_ls",
             "pyright",
+            "ruff",
             "marksman",
             "tinymist",
             {
@@ -21,7 +22,7 @@ M.setup = function ()
         },
     })
 
-    vim.lsp.enable({ "lua_ls", "html", "cssls", "ts_ls", "pyright", "rust_analyzer", "typst" })
+    vim.lsp.enable({ "lua_ls", "html", "cssls", "ts_ls", "pyright", "ruff", "rust_analyzer", "typst" })
 end
 
 return M

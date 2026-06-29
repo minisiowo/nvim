@@ -23,8 +23,51 @@ M.setup = function ()
         })
     end, { desc = "Find Files" })
 
-    -- <Leader>fg - Wyszukiwanie tekstu (Live Grep)
-    vim.keymap.set("n", "<leader>fg", "<cmd>Pick grep_live<CR>", { desc = "Find/Grep Text" })
+    -- <Leader>fg - Wyszukiwanie tekstu, również w symlinkowanych plikach
+    vim.keymap.set("n", "<leader>fg", function()
+        local MiniPick = require("mini.pick")
+        local cwd = vim.fn.getcwd()
+        local sys = { kill = function() end }
+
+        local match = function(_, _, query)
+            sys:kill()
+
+            local pattern = table.concat(query)
+            if pattern == "" then
+                sys = { kill = function() end }
+                return MiniPick.set_picker_items({}, { do_match = false })
+            end
+
+            local case = vim.o.ignorecase and (vim.o.smartcase and "smart-case" or "ignore-case") or "case-sensitive"
+            local command = {
+                "rg",
+                "-L",
+                "--column",
+                "--line-number",
+                "--no-heading",
+                "--field-match-separator",
+                "\\x00",
+                "--color=never",
+                "--" .. case,
+                "--",
+                pattern,
+            }
+
+            sys = MiniPick.set_picker_items_from_cli(command, {
+                set_items_opts = { do_match = false },
+                spawn_opts = { cwd = cwd },
+            })
+        end
+
+        MiniPick.start({
+            source = {
+                name = "Grep live (rg -L)",
+                items = {},
+                match = match,
+                cwd = cwd,
+            },
+        })
+    end, { desc = "Find/Grep Text" })
 
     -- <Leader>fb - Przeszukiwanie otwartych buforów
     vim.keymap.set("n", "<leader>fb", "<cmd>Pick buffers<CR>", { desc = "Find Buffers" })
